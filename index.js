@@ -1,5 +1,8 @@
-function add(a, d) {
-  return a + d;
-}
+const inputEl = document.getElementById('input-el');
+const buttonEl = document.getElementById('button-el');
 
-console.log(add(2, 2));
+buttonEl.addEventListener('click', function () {
+  let inputFieldValue = inputEl.value;
+
+  console.log(inputFieldValue);
+});
