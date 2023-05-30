@@ -15,11 +15,14 @@ const shoppingListInDBase = ref(database, 'shoppingList');
 
 const inputEl = document.getElementById('input-el');
 const buttonEl = document.getElementById('button-el');
+const shoppingListEl = document.getElementById('shopping-list');
 
 buttonEl.addEventListener('click', function () {
   let inputFieldValue = inputEl.value;
 
   push(shoppingListInDBase, inputFieldValue);
 
-  console.log(inputFieldValue);
+  inputEl.value = '';
+
+  shoppingListEl.innerHTML += `<li>${inputFieldValue}</li>`;
 });
