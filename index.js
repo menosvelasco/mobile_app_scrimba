@@ -22,7 +22,15 @@ buttonEl.addEventListener('click', function () {
 
   push(shoppingListInDBase, inputFieldValue);
 
-  inputEl.value = '';
+  emptyInputField();
 
-  shoppingListEl.innerHTML += `<li>${inputFieldValue}</li>`;
+  displayShoppingList(inputFieldValue);
 });
+
+function emptyInputField() {
+  inputEl.value = '';
+}
+
+function displayShoppingList(itemValue) {
+  shoppingListEl.innerHTML += `<li>${itemValue}</li>`;
+}
