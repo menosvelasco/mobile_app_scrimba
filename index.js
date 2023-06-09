@@ -31,6 +31,10 @@ buttonEl.addEventListener('click', function () {
 onValue(shoppingListInDBase, function (snapshot) {
   let itemsArray = Object.values(snapshot.val());
 
+  for (let i = 0; i < itemsArray.length; i++) {
+    displayShoppingList(itemsArray[i]);
+  }
+
   console.log(itemsArray);
 });
 
