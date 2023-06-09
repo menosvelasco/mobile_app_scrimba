@@ -24,12 +24,12 @@ buttonEl.addEventListener('click', function () {
   push(shoppingListInDBase, inputFieldValue);
 
   emptyInputField();
-
-  displayShoppingList(inputFieldValue);
 });
 
 onValue(shoppingListInDBase, function (snapshot) {
   let itemsArray = Object.values(snapshot.val());
+
+  emptyShoppingList();
 
   for (let i = 0; i < itemsArray.length; i++) {
     displayShoppingList(itemsArray[i]);
@@ -40,6 +40,10 @@ onValue(shoppingListInDBase, function (snapshot) {
 
 function emptyInputField() {
   inputEl.value = '';
+}
+
+function emptyShoppingList() {
+  shoppingListEl.innerHTML = '';
 }
 
 function displayShoppingList(itemValue) {
