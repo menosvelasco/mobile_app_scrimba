@@ -37,7 +37,7 @@ onValue(shoppingListInDBase, function (snapshot) {
     let currentItemId = currentItem[0];
     let currentItemValue = currentItem[1];
 
-    displayShoppingList(currentItemValue);
+    displayShoppingList(currentItem);
   }
 
   console.log(itemsArray);
@@ -51,6 +51,13 @@ function emptyShoppingList() {
   shoppingListEl.innerHTML = '';
 }
 
-function displayShoppingList(itemValue) {
-  shoppingListEl.innerHTML += `<li>${itemValue}</li>`;
+function displayShoppingList(item) {
+  let itemId = item[0];
+  let itemValue = item[1];
+
+  let createListEl = document.createElement('li');
+
+  createListEl.textContent = itemId;
+
+  shoppingListEl.append(createListEl);
 }
