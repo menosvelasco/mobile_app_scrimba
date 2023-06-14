@@ -4,6 +4,7 @@ body {
   padding: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Verdana, sans-serif;
+  user-select: none;
 }
 .container {
   display: flex;
