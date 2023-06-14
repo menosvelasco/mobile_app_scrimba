@@ -28,17 +28,21 @@ buttonEl.addEventListener('click', function () {
 });
 
 onValue(shoppingListInDBase, function (snapshot) {
-  let itemsArray = Object.entries(snapshot.val());
+  if (snapshot.exists()) {
+    let itemsArray = Object.entries(snapshot.val());
 
-  emptyInputField();
+    emptyInputField();
 
-  for (let i = 0; i < itemsArray.length; i++) {
-    let currentItem = itemsArray[i];
+    for (let i = 0; i < itemsArray.length; i++) {
+      let currentItem = itemsArray[i];
 
-    let currentItemId = currentItem[0];
-    let currentItemValue = currentItem[1];
+      let currentItemId = currentItem[0];
+      let currentItemValue = currentItem[1];
 
-    displayShoppingList(currentItem);
+      displayShoppingList(currentItem);
+    }
+  } else {
+    shoppingListEl.innerHTML = 'No items here... yet';
   }
 });
 
