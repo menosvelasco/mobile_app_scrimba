@@ -4,6 +4,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 
 const appSettings = {
@@ -39,8 +40,6 @@ onValue(shoppingListInDBase, function (snapshot) {
 
     displayShoppingList(currentItem);
   }
-
-  console.log(itemsArray);
 });
 
 function emptyInputField() {
@@ -57,7 +56,13 @@ function displayShoppingList(item) {
 
   let createListEl = document.createElement('li');
 
-  createListEl.textContent = itemId;
+  createListEl.textContent = itemValue;
+
+  createListEl.addEventListener('click', function () {
+    let locationItemIdDatabase = ref(database, `shoppingList/${itemId}`);
+
+    remove(locationItemIdDatabase);
+  });
 
   shoppingListEl.append(createListEl);
 }
