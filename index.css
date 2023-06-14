@@ -39,6 +39,10 @@ button {
   margin: 10px 0;
   font-family: 'Rubik', sans-serif;
 }
+button:hover {
+  background-color: #fca848;
+  cursor: pointer;
+}
 
 ul {
   list-style-type: none;
@@ -57,4 +61,9 @@ ul li {
   text-align: center;
   color: #ac485a;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+ul li:hover {
+  background-color: #ffecc7;
+  cursor: pointer;
 }
